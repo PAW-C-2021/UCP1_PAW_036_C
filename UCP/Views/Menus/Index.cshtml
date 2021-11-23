@@ -1,0 +1,59 @@
+﻿@model IEnumerable<UCP.Models.Menu>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("GeneralInformation")
+            </th>
+            <th>
+                @Html.DisplayName("Mathematic")
+            </th>
+            <th>
+                @Html.DisplayName("Sains")
+            </th>
+            <th>
+                @Html.DisplayName("Reading")
+            </th>
+            <th>
+                @Html.DisplayName("Columnn")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GeneralInformation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mathematic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sains)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Reading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Columnn)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.IdMenu"><i class="fa fa-marker fa-lag"></i></a> |
+                <a asp-action="Details" asp-route-id="@item.IdMenu"><i class="fas fa-list"></i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdMenu"><i class="fa fa-trash-alt fa-lag"></i></a>|
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
